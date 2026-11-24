@@ -1,0 +1,316 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Abhishek Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: left-aligned editorial column; hero, a registry-style record for the utility model, project grid, experience list, skills index. */
+:root {
+  --bg: #f2f4f7;
+  --surface: #ffffff;
+  --fg: #0f1620;
+  --muted: #566170;
+  --line: #d7dce3;
+  --accent: #1f4fe0;
+  --accent-fg: #ffffff;
+  --accent-soft: #e4ebff;
+  --display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1219; --surface: #151c26; --fg: #e8edf4; --muted: #9aa6b6;
+    --line: #263140; --accent: #86a6ff; --accent-fg: #0d1219; --accent-soft: #1b2740;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1219; --surface: #151c26; --fg: #e8edf4; --muted: #9aa6b6;
+  --line: #263140; --accent: #86a6ff; --accent-fg: #0d1219; --accent-soft: #1b2740;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.mono { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+
+nav { display: flex; flex-wrap: wrap; gap: 8px 22px; padding-block: 22px; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--line); }
+nav .brand { font-family: var(--display); font-weight: 800; font-size: 1.1rem; }
+nav ul { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 0; padding: 0; }
+nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+nav a:hover { color: var(--fg); }
+
+.hero { padding-block: 72px 56px; display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(2.8rem, 9vw, 6rem); font-weight: 800; letter-spacing: -0.03em; }
+.hero h1 span { color: var(--accent); }
+.hero .lede { max-width: 58ch; font-size: 1.12rem; color: var(--muted); }
+.hero .lede strong { color: var(--fg); font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 0.85rem; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.chip.hot { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 500; }
+
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 8px; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(1.7rem, 4.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; }
+
+/* Utility model record */
+.record { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+.record .main { padding: 28px; display: grid; gap: 14px; align-content: start; border-right: 1px solid var(--line); }
+.record h3 { font-size: 1.7rem; font-weight: 700; }
+.record .de { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); }
+.award { display: inline-flex; width: fit-content; align-items: center; gap: 8px; background: var(--accent); color: var(--accent-fg); padding: 6px 12px; border-radius: 4px; font-weight: 600; font-size: 0.88rem; }
+dl.fields { margin: 0; display: grid; }
+dl.fields div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 12px; padding: 12px 24px; border-bottom: 1px solid var(--line); }
+dl.fields div:last-child { border-bottom: 0; }
+dl.fields dt { font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding-top: 3px; }
+dl.fields dd { margin: 0; font-size: 0.95rem; overflow-wrap: anywhere; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.card h3 { font-size: 1.35rem; font-weight: 700; }
+.card p { color: var(--muted); font-size: 0.97rem; }
+.card .when { font-family: var(--mono); font-size: 0.76rem; color: var(--accent); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tags span { font-family: var(--mono); font-size: 0.72rem; padding: 3px 8px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); }
+
+.rows { display: grid; }
+.row { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 8px 28px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.row:first-child { padding-top: 0; }
+.row:last-child { border-bottom: 0; padding-bottom: 0; }
+.row h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+.row p { color: var(--muted); max-width: 66ch; }
+
+.skills { display: grid; gap: 0; }
+.skills .group { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 8px 28px; padding-block: 16px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.skills .group:last-child { border-bottom: 0; }
+.skills .items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.cta { display: grid; gap: 14px; max-width: 60ch; }
+.cta h2 { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.025em; }
+.cta p { color: var(--muted); }
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+
+@media (max-width: 760px) {
+  .hero { padding-block: 48px 40px; }
+  .record { grid-template-columns: minmax(0, 1fr); }
+  .record .main { border-right: 0; border-bottom: 1px solid var(--line); padding: 22px 18px; }
+  dl.fields div { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 12px 18px; }
+  .row, .skills .group { grid-template-columns: minmax(0, 1fr); }
+  section { padding-block: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+  <nav>
+    <span class="brand">Abhishek</span>
+    <ul>
+      <li><a href="#recognition">Recognition</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <p class="mono">Android developer · Jaipur, India</p>
+    <h1>I build apps that<br>ship, and <span>keep people safe.</span></h1>
+    <p class="lede"><strong>Android Developer at SUREFY.AI</strong> and final-year Data Science and Engineering student at Manipal University Jaipur. I build Kotlin and Flutter apps from first commit to Play Store release, and I hold a registered German utility model for a driving safety system I created.</p>
+    <div class="chips">
+      <span class="chip hot">Student Excellence Award</span>
+      <span class="chip hot">German utility model holder</span>
+      <span class="chip">Hackathon first runner-up</span>
+      <span class="chip">Graduating July 2027</span>
+      <span class="chip">Open to SDE roles</span>
+    </div>
+  </header>
+
+  <section id="recognition">
+    <div class="sec-head">
+      <p class="mono">Recognition</p>
+      <h2>Driving Pal, registered in Germany</h2>
+    </div>
+    <article class="record">
+      <div class="main">
+        <span class="award">Student Excellence Award</span>
+        <h3>Driving Pal</h3>
+        <p class="de">Ein intelligentes System für Fahrsicherheit und Notfallwarnungen</p>
+        <p>An intelligent system for driving safety and emergency warnings. Driving Pal was registered as a Gebrauchsmuster (German utility model) by the German Patent and Trade Mark Office, and I received the Student Excellence Award for its publication.</p>
+      </div>
+      <dl class="fields">
+        <div><dt>Registration</dt><dd>DE 20 2026 105 461</dd></div>
+        <div><dt>Office</dt><dd>DPMA, German Patent and Trade Mark Office</dd></div>
+        <div><dt>Filed</dt><dd>03.09.2026</dd></div>
+        <div><dt>Registered</dt><dd>21.09.2026</dd></div>
+        <div><dt>IPC class</dt><dd>G08B 25/10</dd></div>
+        <div><dt>Co-holders</dt><dd>Abhishek, Manipal University Jaipur and co-inventors</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head">
+      <p class="mono">Projects</p>
+      <h2>Things I have built and released</h2>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="when">2026 · SUREFY.AI</span>
+        <h3>Connect</h3>
+        <p>A Truecaller-style Android app on the Play Store as "Connects – Smart Caller ID". It works as the default phone and SMS handler, identifies callers, detects spam, and links straight into WhatsApp, Instagram, LinkedIn and Twitter profiles.</p>
+        <div class="tags"><span>Kotlin</span><span>Jetpack Compose</span><span>Hilt</span><span>Retrofit</span><span>Firestore</span></div>
+      </article>
+      <article class="card">
+        <span class="when">Jun 2026 – Sep 2026</span>
+        <h3>Aurora</h3>
+        <p>A social discovery app built with Flutter. I took it through the Play Console release: signed AAB, upload keystore, internal testing and a production rollout for India.</p>
+        <div class="tags"><span>Flutter</span><span>Play Console</span><span>App signing</span></div>
+      </article>
+      <article class="card">
+        <span class="when">Sep 2026 – present</span>
+        <h3>ScamShield</h3>
+        <p>An ongoing project at SUREFY.AI focused on protecting users from scams.</p>
+        <div class="tags"><span>Android</span><span>In progress</span></div>
+      </article>
+      <article class="card">
+        <span class="when">Feb – May 2025 · Team project</span>
+        <h3>Healthcare Management System</h3>
+        <p>A team-built system for managing healthcare records and workflows, developed during my degree.</p>
+        <div class="tags"><span>Java</span><span>Spring Boot</span><span>SQL</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <p class="mono">Experience</p>
+      <h2>Work and competitions</h2>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <p class="mono">Current</p>
+        <div>
+          <h3>Android Developer, SUREFY.AI</h3>
+          <p>Build and maintain production Android and Flutter apps, handle Play Console releases, and work through store policy reviews such as the SMS and Call Log permission policy.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">Freelance</p>
+        <div>
+          <h3>Digital consultant for educational institutions</h3>
+          <p>SEO, web content and social media audits for colleges and schools in Panvel, Navi Mumbai and Jaipur, including meta tag packages, course pages and Instagram audit reports.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">Hackathon</p>
+        <div>
+          <h3>Webathon, first runner-up</h3>
+          <p>Placed first runner-up at the Webathon hackathon (MHSSCE).</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">Simulation</p>
+        <div>
+          <h3>Deloitte Data Analytics job simulation</h3>
+          <p>Completed the Deloitte virtual job simulation in data analytics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <p class="mono">Skills</p>
+      <h2>What I work with</h2>
+    </div>
+    <div class="skills">
+      <div class="group"><p class="mono">Languages</p><div class="items"><span class="chip">Kotlin</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">C</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div></div>
+      <div class="group"><p class="mono">Mobile</p><div class="items"><span class="chip">Jetpack Compose</span><span class="chip">Flutter</span><span class="chip">Hilt</span><span class="chip">Retrofit</span><span class="chip">Play Console releases</span></div></div>
+      <div class="group"><p class="mono">Backend and data</p><div class="items"><span class="chip">Firebase</span><span class="chip">Firestore</span><span class="chip">Spring Boot</span><span class="chip">REST APIs</span></div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head">
+      <p class="mono">Education</p>
+      <h2>Degree and certifications</h2>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <p class="mono">2023 – Jul 2027</p>
+        <div>
+          <h3>BTech, Data Science and Engineering</h3>
+          <p>Manipal University Jaipur. Graduating July 2027.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">Certification</p>
+        <div>
+          <h3>NPTEL, Java</h3>
+          <p>Certified through the NPTEL Java programming course.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <p class="mono">Hiring</p>
+      <h2>Looking for an SDE role from 2027.</h2>
+      <p>If you need someone who has shipped Android and Flutter apps, handled store reviews, and filed a patent-grade idea through to registration, I would like to talk.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head">
+      <p class="mono">Contact</p>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <p class="mono">Email</p>
+        <div>
+          <h3><a href="mailto:abhi456190@gmail.com">abhi456190@gmail.com</a></h3>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">Phone</p>
+        <div>
+          <h3><a href="tel:+919216400284">+91 9216400284</a></h3>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">GitHub</p>
+        <div>
+          <h3><a href="https://github.com/SharmaAbhishek17" target="_blank" rel="noopener">github.com/SharmaAbhishek17</a></h3>
+        </div>
+      </div>
+      <div class="row">
+        <p class="mono">LinkedIn</p>
+        <div>
+          <h3><a href="https://www.linkedin.com/in/abhishek-sharma-530611260/" target="_blank" rel="noopener">linkedin.com/in/abhishek-sharma-530611260</a></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="mono">Abhishek · Jaipur, India</span>
+    <span class="mono"><a href="mailto:abhi456190@gmail.com">abhi456190@gmail.com</a> · <a href="tel:+919216400284">+91 9216400284</a></span>
+  </footer>
+</div>
+
+</body></html>
